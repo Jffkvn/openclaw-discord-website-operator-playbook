@@ -1,0 +1,29 @@
+{
+  "$schema": "https://openclaw.example/schema.json",
+  "models": {
+    "default": "openai-codex/gpt-5.4"
+  },
+  "browser": {
+    "enabled": true,
+    "profile": "openclaw"
+  },
+  "channels": {
+    "discord": {
+      "enabled": true,
+      "groupPolicy": "open",
+      "requireMention": false,
+      "ownerUsers": [
+        "YOUR_DISCORD_USER_ID"
+      ]
+    },
+    "telegram": {
+      "enabled": false,
+      "ownerUsers": [
+        "YOUR_TELEGRAM_USER_ID"
+      ]
+    }
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  }
+}

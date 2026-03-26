@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "weekly-shortlist-example",
+      "name": "Website operator weekly shortlist",
+      "enabled": true,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 16 * * 2",
+        "tz": "Africa/Kampala"
+      },
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Research 6 practical article ideas for this week, shortlist the best 3, and present them for approval.",
+        "timeoutSeconds": 900
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "discord",
+        "to": "channel:YOUR_CHANNEL_ID"
+      }
+    },
+    {
+      "id": "publish-example",
+      "name": "Website operator scheduled publish",
+      "enabled": true,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-04-01T06:00:00.000Z"
+      },
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Publish the approved article using the guarded website workflow, run build verification, and report the result.",
+        "timeoutSeconds": 1800
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "discord",
+        "to": "YOUR_CHANNEL_ID"
+      },
+      "failureAlert": {
+        "after": 1,
+        "channel": "discord",
+        "to": "YOUR_CHANNEL_ID",
+        "cooldownMs": 1800000,
+        "mode": "announce"
+      }
+    }
+  ]
+}

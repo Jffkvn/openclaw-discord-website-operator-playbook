@@ -1,0 +1,17 @@
+.DS_Store
+.env
+.env.*
+*.log
+*.tmp
+*.bak
+node_modules/
+dist/
+coverage/
+.idea/
+.vscode/
+sessions/
+auth-profiles.json
+token*
+secret*
+screenshots/raw/
+artifacts/private/
