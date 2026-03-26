@@ -11,6 +11,11 @@ The model described in this repo uses a weekly rhythm:
 - Tuesday afternoon: research and shortlist
 - later scheduled publishes: run on the chosen days and times
 
+The useful split is:
+
+- live chat for selection and approval
+- cron for recurring research and timed execution
+
 ## Recommended Split
 
 ### Research job
@@ -56,6 +61,16 @@ Use a recurring job for research and either:
 
 - one-shot jobs for that week’s approved publishes, or
 - a queue-driven recurring publish model if you want a more durable long-term system
+
+## Practical Recommendation
+
+If you are rebuilding this from scratch:
+
+- start with one recurring shortlist job
+- prove one interactive publish end to end
+- then add timed publish jobs
+
+Do not start with full automation before the operator can pass the interactive acceptance test.
 
 ## Future Improvement
 

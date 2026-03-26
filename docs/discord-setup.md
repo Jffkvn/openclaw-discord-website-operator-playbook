@@ -77,3 +77,14 @@ Before trusting publishing work, test the channel in this order:
 4. publish confirmation path
 
 If the operator cannot pass those basic checks, do not move to live deployment yet.
+
+## Example Acceptance-Test Prompt Sequence
+
+These are the kinds of prompts worth testing first:
+
+1. a simple channel greeting
+2. "read this project and tell me the key article IDs"
+3. "run the website build and tell me whether it passed"
+4. "prepare the article update and show me the diff only"
+
+The point is to prove execution, not just conversation.

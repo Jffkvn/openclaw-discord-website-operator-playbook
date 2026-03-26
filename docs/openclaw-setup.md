@@ -25,6 +25,13 @@ Use the examples in:
 
 Copy them into your local OpenClaw state and replace placeholders with your own values.
 
+At minimum, you need:
+
+- a default model path
+- channel configuration
+- token-bearing values in your real local env file
+- a clear workflow document for the target website project
+
 ### 2. Choose the model path
 
 For this style of operator, test the model in the context that matters:
@@ -51,6 +58,16 @@ Do not stop at terminal checks. Confirm from Discord that the operator can:
 - run a build
 - report the real result
 
+## Minimum Working Proof
+
+Before trusting the operator with a live website, prove these in order:
+
+1. it replies in the Discord channel
+2. it can read the project files without asking you to paste them manually
+3. it can run the real build command
+4. it reports the actual build result instead of promising progress
+5. it can follow the guarded publish path without improvising toolchain edits
+
 ## Important Runtime Lesson
 
 If the operator looks like it has permission but the gateway denies execution in practice, the user experience becomes confusing fast. Before blaming prompting, verify the actual runtime path:
@@ -69,6 +86,14 @@ If the operator looks like it has permission but the gateway denies execution in
 ## Workflow File
 
 Give the operator a clear workflow document for the website project it manages. The stronger the boundaries, the safer the day-to-day publishing flow becomes.
+
+That workflow file should say:
+
+- what files are in scope
+- what files are off limits during routine publishing
+- how images are prepared
+- how the build is verified
+- how deploys are executed
 
 ## Provider Advice
 

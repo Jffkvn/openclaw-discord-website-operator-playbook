@@ -2,6 +2,27 @@
 
 An anonymized, Mac-first playbook for building a reliable OpenClaw website operator that works through Discord, uses cron for scheduling, and safely updates production websites.
 
+## What You Build
+
+By the end of this repo, you should have a working operator that can:
+
+- receive website-update instructions from Discord
+- inspect and edit a local website project on the same Mac
+- run build verification before claiming success
+- deploy through a guarded publish script instead of ad hoc commands
+- use cron for recurring research and timed publishing jobs
+
+This is not a generic "AI bot" guide. It is specifically about building a Discord-driven website operator with strong workflow boundaries.
+
+## Who This Is For
+
+This repo is for builders who want to recreate a practical local operator workflow on macOS and care about:
+
+- real tool execution
+- safer publishing workflows
+- repeatable scheduling
+- reducing fake progress and vague agent behavior
+
 ## What This Repo Covers
 
 This repo documents a real operator workflow that was built and debugged on macOS. The operator is designed to:
@@ -16,6 +37,22 @@ This is both:
 
 - a case study showing the failures, constraints, and fixes
 - a playbook that helps other builders recreate a similar setup on macOS
+
+## Start Here
+
+If your goal is to rebuild the setup, use this order:
+
+1. [Recreate Checklist](./docs/recreate-checklist.md)
+2. [Mac Setup](./docs/mac-setup.md)
+3. [OpenClaw Setup](./docs/openclaw-setup.md)
+4. [Discord Setup](./docs/discord-setup.md)
+5. [Scheduling and Cron](./docs/scheduling-and-cron.md)
+6. [Security and Redaction](./docs/security-and-redaction.md)
+
+Then come back to:
+
+- [Case Study](./docs/case-study.md)
+- [Lessons Learned](./docs/lessons-learned.md)
 
 ## What Is Anonymized
 
@@ -47,6 +84,18 @@ The system became useful only after the runtime was stabilized, the publishing w
 - how to reduce the difference between "sounds helpful" and "actually works"
 - how to sanitize a real setup before sharing it publicly
 
+## Quick Recreate Path
+
+If you want the shortest version, the practical path is:
+
+1. install Node, OpenClaw, and `webp` on macOS
+2. create your local OpenClaw config from the example files
+3. set up a Discord bot and connect it to OpenClaw
+4. define a narrow website publishing workflow
+5. prove the operator can reply, read files, run a build, and report the result
+6. add a recurring shortlist cron job
+7. add timed publish jobs only after the interactive flow works
+
 ## Architecture At A Glance
 
 ```mermaid
@@ -61,19 +110,20 @@ flowchart TD
 
 ## Reading Order
 
-1. [Case Study](./docs/case-study.md)
-2. [Architecture](./docs/architecture.md)
-3. [Mac Setup](./docs/mac-setup.md)
-4. [OpenClaw Setup](./docs/openclaw-setup.md)
-5. [Discord Setup](./docs/discord-setup.md)
-6. [Scheduling and Cron](./docs/scheduling-and-cron.md)
-7. [Security and Redaction](./docs/security-and-redaction.md)
-8. [Lessons Learned](./docs/lessons-learned.md)
+1. [Recreate Checklist](./docs/recreate-checklist.md)
+2. [Mac Setup](./docs/mac-setup.md)
+3. [OpenClaw Setup](./docs/openclaw-setup.md)
+4. [Discord Setup](./docs/discord-setup.md)
+5. [Scheduling and Cron](./docs/scheduling-and-cron.md)
+6. [Architecture](./docs/architecture.md)
+7. [Case Study](./docs/case-study.md)
+8. [Security and Redaction](./docs/security-and-redaction.md)
+9. [Lessons Learned](./docs/lessons-learned.md)
 
 ## Repo Map
 
 - [`docs/`](./docs)
-  - narrative, architecture, setup, security, and lessons
+  - recreate checklist, narrative, architecture, setup, security, and lessons
 - [`sanitized-config/`](./sanitized-config)
   - example configuration files with placeholders only
 - [`prompts/`](./prompts)
@@ -86,6 +136,16 @@ flowchart TD
 ## Security Note
 
 This repo is meant to be reproducible, but not reckless. It intentionally omits the private values required to run a production setup. Read [Security and Redaction](./docs/security-and-redaction.md) before copying any pattern into a live environment.
+
+## What This Repo Does Not Include
+
+To keep the playbook public and safe, it does not include:
+
+- real tokens or auth state
+- raw production transcripts
+- private client repositories
+- real production domains or channel identifiers
+- a guarantee that every model/provider combination will behave the same in your environment
 
 ## Current Status
 
